@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 
-export default function Home(props: any) {
-  const [params, setParams] = useState<[]>([]);
+const Home = (props: any) => {
+  const [params, setParams] = useState<string[]>([]);
   const router = useRouter();
 
   useEffect(() => {
     if (!router.isReady) return;
     const params = router.query?.params || [];
+    if (typeof params === "string") return;
     setParams(params);
   }, [router]);
 
@@ -25,7 +27,7 @@ export default function Home(props: any) {
           <tbody>
             {params.map((value, index) => (
               <tr key={index}>
-                <th width='100px'>{index}</th>
+                <th style={{ width: "100px" }}>{index}</th>
                 <td>{value}</td>
               </tr>
             ))}
@@ -34,4 +36,6 @@ export default function Home(props: any) {
       </div>
     </main>
   );
-}
+};
+
+export default dynamic(async () => Home, { ssr: false });
