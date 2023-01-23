@@ -1,0 +1,17 @@
+[
+  {
+    "message": "This is sample message!",
+    "name": "taro",
+    "email": "taro@yamada"
+  },
+  {
+    "message": "これはサンプルのメッセージです。",
+    "name": "hanako",
+    "email": "hanako@flower"
+  },
+  {
+    "message": "ハロー！これはサンプルだよー♡",
+    "name": "sachiko",
+    "email": "sachiko@happy"
+  }
+]
